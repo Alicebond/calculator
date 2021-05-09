@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #ffffff;
+}
+
+.grid-container {
+  margin: auto;
+  width: 50%;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas: "display display display display" "C C C add" "num1 num2 num3 subtract" "num4 num5 num6 multiply" "num7 num8 num9 divide" "num0 num0 dot equal";
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.display {
+  grid-area: display;
+}
+
+.C {
+  grid-area: C;
+}
+
+.num--1 {
+  grid-area: num1;
+}
+
+.num--2 {
+  grid-area: num2;
+}
+
+.num--3 {
+  grid-area: num3;
+}
+
+.num--4 {
+  grid-area: num4;
+}
+
+.num--5 {
+  grid-area: num5;
+}
+
+.num--6 {
+  grid-area: num6;
+}
+
+.num--7 {
+  grid-area: num7;
+}
+
+.num--8 {
+  grid-area: num8;
+}
+
+.num--9 {
+  grid-area: num9;
+}
+
+.num--0 {
+  grid-area: num0;
+}
+
+.add {
+  grid-area: add;
+}
+
+.subtract {
+  grid-area: subtract;
+}
+
+.multiply {
+  grid-area: multiply;
+}
+
+.divide {
+  grid-area: divide;
+}
+
+.dot {
+  grid-area: dot;
+}
+
+.equal {
+  grid-area: equal;
+}
+
+.display {
+  background-color: mintcream;
+  border: 4px solid lightskyblue;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+
+.display--content {
+  font-size: 120px;
+  padding-left: 5px;
+  margin: 0;
+}
+
+button {
+  border: 0.1px solid whitesmoke;
+  font-size: 70px;
+  padding: 5px 20px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.add,
+.subtract,
+.multiply,
+.divide {
+  background-color: #7ed6df;
+}
+
+.add:hover,
+.subtract:hover,
+.multiply:hover,
+.divide:hover {
+  background-color: #79c5ce;
+}
+
+.add:focus,
+.subtract:focus,
+.multiply:focus,
+.divide:focus {
+  background-color: #008d9c;
+}
+
+.C {
+  background-color: #bdbdbd;
+}
+
+.C:hover {
+  background-color: #dfdede;
+}
+
+.equal {
+  background-color: #b2ebf2;
+}
+
+.equal:hover {
+  background-color: #aad6db;
+}
+
+.num {
+  background-color: #e7e7e7;
+}
+
+.num:hover {
+  background-color: #d6d5d5;
+}
