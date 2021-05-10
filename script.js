@@ -22,14 +22,16 @@ function multiplication(a, b) {
 }
 
 function division(a, b) {
-  return !b ? "ERROR!" : a / b;
+  if (!b) return "ERROR!";
+  else return (a / b).toFixed(9);
+  // return !b ? "ERROR!" : (a / b).toFixed(9);
 }
 
 function operate(operator, a, b) {
   if (operator === "+") showContent(addition(a, b));
   else if (operator === "–") showContent(subtraction(a, b));
   else if (operator === "*") showContent(multiplication(a, b));
-  else showContent(division(a, b).toFixed(9));
+  else showContent(division(a, b));
 }
 
 btns.addEventListener("click", (e) => {
