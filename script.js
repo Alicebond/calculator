@@ -29,7 +29,7 @@ function operate(operator, a, b) {
   if (operator === "+") showContent(addition(a, b));
   else if (operator === "–") showContent(subtraction(a, b));
   else if (operator === "*") showContent(multiplication(a, b));
-  else showContent(division(a, b).toFixed(10));
+  else showContent(division(a, b).toFixed(9));
 }
 
 btns.addEventListener("click", (e) => {
