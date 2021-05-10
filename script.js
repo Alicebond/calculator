@@ -67,7 +67,7 @@ function ope(e) {
 
 function clear() {
   document.querySelector("#dot").disabled = false;
-  displayContent.textContent = "";
+  displayContent.textContent = "0";
   displayValue = "";
   num1 = undefined;
   num2 = undefined;
