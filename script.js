@@ -40,7 +40,6 @@ function showContent(value) {
 container.addEventListener("click", (e) => {
   const isBtn = e.target.nodeName === "BUTTON";
   if (!isBtn) return;
-  if (e.target.textContent === "ERROR!") clear();
 
   if (e.target.dataset.num) {
     if (e.target.id === "dot") e.target.disabled = true;
