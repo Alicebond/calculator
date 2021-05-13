@@ -66,7 +66,7 @@ function getNum(tempValue) {
 }
 
 function getOp(a) {
-  if (!displayContent.textContent || tempValue === ".") return;
+  if (!tempValue || tempValue === ".") return;
   pressDot();
   if (op && num1 && num2) {
     operate(op, num1, num2);
