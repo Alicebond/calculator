@@ -1,13 +1,12 @@
 "use strict";
 
 const displayContent = document.querySelector(".display--content");
-const btns = document.querySelector(".grid-container");
+const container = document.querySelector(".grid-container");
 
-let displayValue = "",
-  num1,
-  num2,
-  op,
-  result;
+let tempValue = "",
+  num1 = 0,
+  num2 = 0,
+  op;
 
 function addition(a, b) {
   return a + b;
@@ -34,49 +33,68 @@ function operate(operator, a, b) {
   else showContent(division(a, b));
 }
 
-btns.addEventListener("click", (e) => {
+function showContent(value) {
+  displayContent.textContent = value;
+}
+
+container.addEventListener("click", (e) => {
   const isBtn = e.target.nodeName === "BUTTON";
   if (!isBtn) return;
-  if (e.target.classList[0] === "num") {
-    if (num1 && num2 && displayValue) clear();
-    displayValue += e.target.textContent;
-    if (e.target.textContent === ".") e.target.disabled = true;
-    showContent(displayValue);
-  } else if (e.target.classList[0] === "operator") {
-    if (!displayValue || displayValue === ".") return;
-    document.querySelector("#dot").disabled = false;
-    if (op) {
-      num2 = +displayValue;
-      operate(op, num1, num2);
-      num1 = +displayContent.textContent;
-      ope(e);
-    } else {
-      num1 = +displayValue;
-      ope(e);
-    }
-  } else if (e.target.className === "equal") {
-    if (!op || !displayValue || displayValue === ".") return;
-    document.querySelector("#dot").disabled = false;
-    num2 = +displayValue;
-    operate(op, num1, num2);
-  } else clear();
+  if (e.target.textContent === "ERROR!") clear();
+
+  if (e.target.dataset.num) {
+    if (e.target.id === "dot") e.target.disabled = true;
+    tempValue += e.target.dataset.num;
+    getNum(tempValue);
+    showContent(tempValue);
+  } else if (e.target.dataset.op) getOp(e);
+  else if (e.target.dataset.equal) pressEqual();
+  else if (e.target.dataset.clear) clear();
 });
 
-function ope(e) {
+function getNum(tempValue) {
+  if (op) {
+    num2 = +tempValue;
+  } else {
+    num1 = +tempValue;
+  }
+
+  // op ? (num2 = +tempValue) : (num1 = +tempValue);
+}
+
+function getOp(e) {
+  if (!displayContent.textContent || tempValue === ".") return;
+  pressDot();
+  if (op && num1 && num2) {
+    operate(op, num1, num2);
+    num1 = +displayContent.textContent;
+  } else if (displayContent.textContent && !op && !num1) {
+    num1 = +displayContent.textContent;
+  }
   op = e.target.textContent;
-  displayValue = "";
+  tempValue = "";
+}
+
+function pressEqual() {
+  if (!op || !tempValue || tempValue === ".") return;
+  pressDot();
+  operate(op, num1, num2);
+  resetValue();
 }
 
 function clear() {
-  document.querySelector("#dot").disabled = false;
+  pressDot();
   displayContent.textContent = "0";
-  displayValue = "";
-  num1 = undefined;
-  num2 = undefined;
-  op = undefined;
-  result = undefined;
+  resetValue();
 }
 
-function showContent(value) {
-  displayContent.textContent = value;
+function resetValue() {
+  tempValue = "";
+  num1 = 0;
+  num2 = 0;
+  op = undefined;
+}
+
+function pressDot() {
+  document.querySelector("#dot").disabled = false;
 }
