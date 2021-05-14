@@ -13,8 +13,8 @@ body {
 .grid-container {
   font-size: 50px;
   margin: auto;
-  height: 50%;
-  width: 36%;
+  height: 60%;
+  width: 30%;
   border-radius: 5px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -172,8 +172,14 @@ button {
   background-color: #d1d1d1;
 }
 
-@media (max-height: 800px) {
+@media (max-height: 650px) {
   .display {
     height: 100px;
   }
-} ;
+}
+
+@media (max-width: 900px) {
+  .grid-container {
+    width: 90%;
+  }
+}
