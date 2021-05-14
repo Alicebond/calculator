@@ -66,7 +66,7 @@ function getNum(tempValue) {
 }
 
 function getOp(a) {
-  if (!tempValue || tempValue === ".") return;
+  if (tempValue === ".") return;
   pressDot();
   if (op && num1 && num2) {
     operate(op, num1, num2);
@@ -82,7 +82,6 @@ function pressEqual() {
   if (!op || !tempValue || tempValue === ".") return;
   pressDot();
   operate(op, num1, num2);
-  console.log(op, num1, num2);
   resetValue();
 }
 
