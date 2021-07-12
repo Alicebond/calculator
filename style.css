@@ -7,6 +7,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100vw;
   background-color: #ffffff;
 }
 
@@ -100,13 +101,11 @@ body {
 }
 
 .display {
-  height: 100%;
   background-color: mintcream;
   border: 4px solid lightskyblue;
   overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
 }
 
 .display--content {
